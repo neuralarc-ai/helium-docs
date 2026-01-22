@@ -72,7 +72,9 @@ export default function Header() {
         {/* Right - Get Started Button */}
         <div className="flex items-center gap-4">
           <Link
-            href="/docs/quick-start"
+            href="https://he2.ai/auth"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md px-4 py-2 text-sm font-medium text-black transition-colors hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
             style={{ backgroundColor: 'oklch(0.9021 0.1723 120.2)' }}
           >
