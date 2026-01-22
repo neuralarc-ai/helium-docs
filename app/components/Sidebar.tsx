@@ -129,7 +129,7 @@ export default function Sidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleSidebar}
-        className="fixed left-4 top-20 z-40 rounded-md bg-gray-800 p-2 shadow-lg md:hidden"
+        className="fixed left-4 top-24 z-40 rounded-md bg-gray-800 p-2 shadow-lg md:hidden"
         aria-label="Toggle sidebar"
         aria-expanded={isOpen}
       >
@@ -142,7 +142,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-16 z-30 h-[calc(100vh-4rem)] w-64 transform border-r border-gray-800 bg-black transition-transform duration-300 ${
+        className={`fixed left-0 top-18 z-30 h-[calc(100vh-4.5rem)] w-64 transform bg-black transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0`}
       >
@@ -178,6 +178,9 @@ export default function Sidebar() {
           ))}
         </nav>
       </aside>
+
+      {/* Fixed Border Divider */}
+      <div className="fixed left-64 top-18 bottom-0 z-20 w-0.5 bg-gradient-to-b from-transparent via-white/30 to-transparent hidden md:block"></div>
 
       {/* Overlay for mobile */}
       {isOpen && (

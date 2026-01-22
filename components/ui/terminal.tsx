@@ -193,6 +193,8 @@ interface TerminalProps {
   selectedFormat?: CodeFormat
   onFormatChange?: (format: CodeFormat) => void
   showFormatDropdown?: boolean
+  showStatus?: boolean
+  statusCode?: string
 }
 
 export const Terminal = ({
@@ -204,6 +206,8 @@ export const Terminal = ({
   selectedFormat = 'curl',
   onFormatChange,
   showFormatDropdown = false,
+  showStatus = false,
+  statusCode = '200',
 }: TerminalProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
@@ -291,15 +295,28 @@ export const Terminal = ({
         "z-0 h-full max-h-[600px] w-full max-w-full rounded-xl flex flex-col",
         className
       )}
-      style={{ backgroundColor: 'oklch(0.2199 0 0)' }}
+      style={{ backgroundColor: '#111111' }}
     >
-      <div className="flex flex-row items-center justify-between gap-y-2 p-4 shrink-0 relative">
-        <div className="flex flex-row gap-x-2">
-          <div className="h-2 w-2 rounded-full bg-red-500"></div>
-          <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
-          <div className="h-2 w-2 rounded-full bg-green-500"></div>
-        </div>
-        <div className="ml-auto flex items-center gap-2">
+      <div className="flex flex-row items-center justify-between gap-y-2 p-2 shrink-0 relative">
+        <div className="flex items-center gap-2">
+          {showStatus && (
+            <span
+              className={`rounded px-2 py-0.5 text-xs font-semibold text-white ${
+                statusCode.startsWith('2')
+                  ? 'bg-green-600'
+                  : statusCode.startsWith('4') && statusCode !== '429'
+                  ? 'bg-red-600'
+                  : statusCode === '429'
+                  ? 'bg-yellow-600'
+                  : statusCode.startsWith('5')
+                  ? 'bg-red-700'
+                  : 'bg-green-600'
+              }`}
+            >
+              {statusCode}
+            </span>
+          )}
+
           {showFormatDropdown && (
             <div className="relative" ref={dropdownRef}>
               <button
@@ -312,7 +329,7 @@ export const Terminal = ({
                 <RiArrowDownSLine className={`h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               {isDropdownOpen && (
-                <div className="absolute right-0 top-full mt-1 w-40 rounded-md border border-gray-700 bg-black shadow-xl z-50">
+                <div className="absolute left-0 top-full mt-1 w-40 rounded-md border border-gray-700 bg-black shadow-xl z-50">
                   <div className="py-1">
                     {formats.map((format) => (
                       <button
@@ -332,10 +349,13 @@ export const Terminal = ({
               )}
             </div>
           )}
+        </div>
+
+        <div className="flex items-center gap-2 ml-auto">
           {copyContent && (
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600"
+              className="flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600 cursor-pointer"
               aria-label="Copy code"
             >
               {copied ? (

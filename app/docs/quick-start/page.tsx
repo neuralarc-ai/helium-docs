@@ -10,8 +10,8 @@ export default function QuickStartPage() {
         use the Public API.
       </p>
 
-      <div className="my-8 rounded-lg border border-blue-800 bg-blue-900/20 p-4">
-        <p className="mb-0 text-sm font-medium text-blue-200">
+      <div className="my-8 rounded-lg border border-[#E0693D] bg-[#E0693D]/20 p-4">
+        <p className="mb-0 text-sm font-medium text-white">
           <strong>Base URL:</strong> <code>https://api.he2.ai</code>
         </p>
       </div>
@@ -53,6 +53,8 @@ export default function QuickStartPage() {
       <h3 className="mt-6 text-xl font-semibold">Response:</h3>
       <CodeBlock
         language="json"
+        showStatus={true}
+        statusCode="200"
         code={`{
   "success": true,
   "project_id": "proj_abc123",

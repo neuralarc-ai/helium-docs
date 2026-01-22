@@ -514,7 +514,7 @@ class HeliumAPI:
         results = self.get_results(task['thread_id'], task['project_id'])
         
         if results['status'] == 'completed':
-            print("✅ Task completed!")
+            print(" Task completed!")
             return results
         else:
             print(f"Status: {results['status']}")
@@ -584,7 +584,7 @@ class HeliumAPI {
         const results = await this.getResults(task.thread_id, task.project_id);
         
         if (results.status === 'completed') {
-            console.log('✅ Task completed!');
+            console.log(' Task completed!');
             return results;
         } else {
             console.log(`Status: ${results.status}`);
@@ -683,7 +683,7 @@ function HeliumWidget() {
             
             {result && result.status === 'completed' && (
                 <div style={{ marginTop: '20px' }}>
-                    <h3>✅ Project Created!</h3>
+                    <h3>Project Created!</h3>
                     <p>Files: {result.files?.length || 0}</p>
                 </div>
             )}
@@ -793,7 +793,7 @@ const HeliumMobileApp = () => {
             {result && (
                 <View style={{ marginTop: 20 }}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
-                        Project Created! 🎉
+                        Project Created! 
                     </Text>
                     <Text>Files: {result.files?.length || 0}</Text>
                 </View>
@@ -858,7 +858,7 @@ def save_files(results):
             with open(filepath, 'wb') as f:
                 f.write(response.content)
         
-        print(f"✅ Saved: {filename}")
+        print(f" Saved: {filename}")
 ```
 
 ### 3. Monitor Progress
@@ -875,10 +875,10 @@ def wait_for_completion(thread_id, project_id, max_minutes=10):
         results = get_results(thread_id, project_id, timeout=30)
         
         if results['status'] == 'completed':
-            print("✅ Task completed!")
+            print("Task completed!")
             return results
         elif results['status'] == 'failed':
-            print("❌ Task failed!")
+            print("Task failed!")
             return results
         elif results['status'] == 'running':
             elapsed = int(time.time() - start_time)
@@ -1031,7 +1031,7 @@ def stream_response(thread_id, project_id):
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 Start building with Helium Public API:
 

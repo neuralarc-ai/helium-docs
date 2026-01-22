@@ -10,61 +10,61 @@ export default function ErrorHandlingPage() {
       </p>
 
       <h2 className="mt-8 text-2xl font-semibold">HTTP Status Codes</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 border border-gray-200 dark:divide-gray-800 dark:border-gray-800">
-          <thead className="bg-gray-50 dark:bg-black">
+      <div className="overflow-x-auto mt-4 rounded-md border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
+        <table className="min-w-full">
+          <thead className="bg-zinc-800/80">
             <tr>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
+              <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-200 border-b border-zinc-700">
                 Code
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
+              <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-200 border-b border-zinc-700">
                 Meaning
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
+              <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-200 border-b border-zinc-700">
                 Action
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-black">
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">200</td>
-              <td className="px-4 py-3 text-sm">Success</td>
-              <td className="px-4 py-3 text-sm">Process response</td>
+          <tbody className="divide-y divide-zinc-700/50">
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-green-400">200</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Success</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Process response</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">400</td>
-              <td className="px-4 py-3 text-sm">Bad Request</td>
-              <td className="px-4 py-3 text-sm">Check parameters</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-red-400">400</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Bad Request</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Check parameters</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">401</td>
-              <td className="px-4 py-3 text-sm">Unauthorized</td>
-              <td className="px-4 py-3 text-sm">Verify API key</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-red-400">401</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Unauthorized</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Verify API key</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">402</td>
-              <td className="px-4 py-3 text-sm">Payment Required</td>
-              <td className="px-4 py-3 text-sm">Check billing/credits</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-orange-400">402</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Payment Required</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Check billing/credits</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">404</td>
-              <td className="px-4 py-3 text-sm">Not Found</td>
-              <td className="px-4 py-3 text-sm">Check IDs</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-red-400">404</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Not Found</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Check IDs</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">422</td>
-              <td className="px-4 py-3 text-sm">Validation Error</td>
-              <td className="px-4 py-3 text-sm">Fix input format</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-red-400">422</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Validation Error</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Fix input format</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">429</td>
-              <td className="px-4 py-3 text-sm">Rate Limited</td>
-              <td className="px-4 py-3 text-sm">Wait and retry</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-yellow-400">429</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Rate Limited</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Wait and retry</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-mono">500</td>
-              <td className="px-4 py-3 text-sm">Server Error</td>
-              <td className="px-4 py-3 text-sm">Retry later</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-mono text-red-500">500</td>
+              <td className="px-6 py-4 text-sm text-gray-200">Server Error</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Retry later</td>
             </tr>
           </tbody>
         </table>
@@ -75,6 +75,8 @@ export default function ErrorHandlingPage() {
 
       <CodeBlock
         language="json"
+        showStatus={true}
+        statusCode="400"
         code={`{
   "detail": "Error message describing the issue"
 }`}
@@ -86,6 +88,8 @@ export default function ErrorHandlingPage() {
       <p>Your API key is invalid or missing:</p>
       <CodeBlock
         language="json"
+        showStatus={true}
+        statusCode="401"
         code={`{
   "detail": "API key not found"
 }`}
@@ -99,6 +103,8 @@ export default function ErrorHandlingPage() {
       <p>Invalid parameters or missing required fields:</p>
       <CodeBlock
         language="json"
+        showStatus={true}
+        statusCode="400"
         code={`{
   "detail": "prompt is required when no files are provided"
 }`}
@@ -112,6 +118,8 @@ export default function ErrorHandlingPage() {
       <p>You've exceeded your rate limit:</p>
       <CodeBlock
         language="json"
+        showStatus={true}
+        statusCode="429"
         code={`{
   "detail": "Rate limit exceeded. Please try again later."
 }`}

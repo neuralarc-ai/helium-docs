@@ -88,7 +88,7 @@ class HeliumAPI:
         results = self.get_results(task['thread_id'], task['project_id'])
         
         if results['status'] == 'completed':
-            print("✅ Task completed!")
+            print(" Task completed!")
             return results
         else:
             print(f"Status: {results['status']}")
@@ -162,7 +162,7 @@ class HeliumAPI {
         const results = await this.getResults(task.thread_id, task.project_id);
         
         if (results.status === 'completed') {
-            console.log('✅ Task completed!');
+            console.log('Task completed!');
             return results;
         } else {
             console.log(\`Status: \${results.status}\`);
@@ -257,7 +257,7 @@ function HeliumWidget() {
             
             {result && result.status === 'completed' && (
                 <div style={{ marginTop: '20px' }}>
-                    <h3>✅ Project Created!</h3>
+                    <h3> Project Created!</h3>
                     <p>Files: {result.files?.length || 0}</p>
                 </div>
             )}
@@ -371,7 +371,7 @@ const HeliumMobileApp = () => {
             {result && (
                 <View style={{ marginTop: 20 }}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
-                        Project Created! 🎉
+                        Project Created! 
                     </Text>
                     <Text>Files: {result.files?.length || 0}</Text>
                 </View>

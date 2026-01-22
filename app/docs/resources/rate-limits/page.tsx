@@ -10,30 +10,30 @@ export default function RateLimitsPage() {
       </p>
 
       <h2 className="mt-8 text-2xl font-semibold">Rate Limit Tiers</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 border border-gray-200 dark:divide-gray-800 dark:border-gray-800">
-          <thead className="bg-gray-50 dark:bg-black">
+      <div className="overflow-x-auto mt-4 rounded-md border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
+        <table className="min-w-full">
+          <thead className="bg-zinc-800/80">
             <tr>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
+              <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-200 border-b border-zinc-700">
                 Tier
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
+              <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-200 border-b border-zinc-700">
                 Requests/Hour
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-black">
-            <tr>
-              <td className="px-4 py-3 text-sm font-medium">Free</td>
-              <td className="px-4 py-3 text-sm">100</td>
+          <tbody className="divide-y divide-zinc-700/50">
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-medium text-gray-200">Free</td>
+              <td className="px-6 py-4 text-sm text-gray-300">100</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-medium">Pro</td>
-              <td className="px-4 py-3 text-sm">10,000</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-medium text-gray-200">Pro</td>
+              <td className="px-6 py-4 text-sm text-gray-300">10,000</td>
             </tr>
-            <tr>
-              <td className="px-4 py-3 text-sm font-medium">Enterprise</td>
-              <td className="px-4 py-3 text-sm">Custom</td>
+            <tr className="hover:bg-zinc-800/30 transition-colors">
+              <td className="px-6 py-4 text-sm font-medium text-gray-200">Enterprise</td>
+              <td className="px-6 py-4 text-sm text-gray-300">Custom</td>
             </tr>
           </tbody>
         </table>

@@ -70,7 +70,7 @@ def save_files(results):
             with open(filepath, 'wb') as f:
                 f.write(response.content)
         
-        print(f"✅ Saved: {filename}")`}
+        print(f"Saved: {filename}")`}
       />
 
       <h2 className="mt-8 text-2xl font-semibold">3. Monitor Progress</h2>
@@ -91,10 +91,10 @@ def save_files(results):
         results = get_results(thread_id, project_id, timeout=30)
         
         if results['status'] == 'completed':
-            print("✅ Task completed!")
+            print(" Task completed!")
             return results
         elif results['status'] == 'failed':
-            print("❌ Task failed!")
+            print(" Task failed!")
             return results
         elif results['status'] == 'running':
             elapsed = int(time.time() - start_time)

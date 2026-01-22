@@ -7,6 +7,7 @@ import {
   type CodeFormat,
   type EndpointType,
 } from '@/app/utils/codeSnippets';
+import { highlightCode } from '@/app/utils/syntaxHighlight';
 
 interface CodeBlockProps {
   language?: string;
@@ -14,6 +15,8 @@ interface CodeBlockProps {
   filename?: string;
   showFormatDropdown?: boolean;
   endpoint?: EndpointType;
+  showStatus?: boolean;
+  statusCode?: string;
 }
 
 export default function CodeBlock({
@@ -22,6 +25,8 @@ export default function CodeBlock({
   filename,
   showFormatDropdown = true,
   endpoint,
+  showStatus = false,
+  statusCode = '200',
 }: CodeBlockProps) {
   const [selectedFormat, setSelectedFormat] = useState<CodeFormat>('curl');
 
@@ -30,8 +35,17 @@ export default function CodeBlock({
     ? getCodeSnippet(endpoint, selectedFormat)
     : code || '';
 
-  // Split code into lines, preserving empty lines
-  const codeLines = displayCode.split('\n');
+  // Get the format for syntax highlighting
+  const getHighlightFormat = () => {
+    if (endpoint) return selectedFormat;
+    if (language === 'bash') return 'curl';
+    if (language === 'jsx' || language === 'react' || language === 'react-native' || language === 'typescript' || language === 'ts' || language === 'tsx') return 'javascript';
+    return language as CodeFormat;
+  };
+  const highlightFormat = getHighlightFormat();
+
+  // Highlight the code
+  const highlightedCode = highlightCode(displayCode, highlightFormat);
 
   return (
     <div className="my-6">
@@ -48,15 +62,16 @@ export default function CodeBlock({
         selectedFormat={selectedFormat}
         onFormatChange={setSelectedFormat}
         showFormatDropdown={showFormatDropdown && !!endpoint}
+        showStatus={showStatus}
+        statusCode={statusCode}
       >
-        {codeLines.map((line, index) => (
+        {highlightedCode.map((line, index) => (
           <AnimatedSpan
             key={index}
             delay={0}
-            className="block font-mono text-sm whitespace-pre"
             startOnView={false}
           >
-            {line || '\u00A0'}
+            {line}
           </AnimatedSpan>
         ))}
       </Terminal>
