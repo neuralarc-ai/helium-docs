@@ -20,7 +20,7 @@ export default function CreateTaskPage() {
       <CodeBlock endpoint="create-task" />
 
       <h2 className="mt-8 text-2xl font-semibold">Parameters</h2>
-      <div className="overflow-x-auto">
+      <div className="mt-4 overflow-x-auto">
         <div className="overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
           <table className="min-w-full">
             <thead className="bg-zinc-800/80">

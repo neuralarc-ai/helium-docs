@@ -47,7 +47,7 @@ const TabButton = ({
           ? 'text-black'
           : 'text-gray-400 hover:text-gray-200 dark:text-gray-400 dark:hover:text-gray-200',
       )}
-      style={isActive ? { backgroundColor: 'oklch(0.9021 0.1723 120.2)' } : undefined}
+      style={isActive ? { backgroundColor: 'oklch(0.9733 0.016855 61.9626)' } : undefined}
     >
       {children}
     </button>
